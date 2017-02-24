@@ -46,7 +46,7 @@ if [[ ! -d ${TEST_DIRECTORY} ]]; then
 	exit 1
 fi
 
-describe "jdeathe/centos-ssh:latest"
+describe "defconjuan/docker-centos-ssh:latest"
 	test_setup
 
 	describe "Basic SSH operations"
@@ -61,7 +61,7 @@ describe "jdeathe/centos-ssh:latest"
 			docker run -d \
 				--name ssh.pool-1.1.1 \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -159,7 +159,7 @@ describe "jdeathe/centos-ssh:latest"
 				--name sftp.pool-1.1.1 \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
 				--env SSH_USER_FORCE_SFTP=true \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -251,7 +251,7 @@ describe "jdeathe/centos-ssh:latest"
 				--name ssh.pool-1.1.1 \
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -300,7 +300,7 @@ describe "jdeathe/centos-ssh:latest"
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--env "SSH_USER=centos" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -347,7 +347,7 @@ describe "jdeathe/centos-ssh:latest"
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--env "SSH_AUTHORIZED_KEYS=${PUBLIC_KEY_ID_RSA_TEST_1}" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -394,7 +394,7 @@ describe "jdeathe/centos-ssh:latest"
 					--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 					--env "SSH_AUTHORIZED_KEYS=${PUBLIC_KEY_ID_RSA_TEST_COMBINED_BASE64}" \
 					--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-					jdeathe/centos-ssh:latest &> /dev/null
+					defconjuan/docker-centos-ssh:latest &> /dev/null
 
 				container_port_22="$(
 					docker port \
@@ -465,7 +465,7 @@ describe "jdeathe/centos-ssh:latest"
 				--env "SSH_USER=app-1" \
 				--env "SSH_USER_HOME=/var/www/%u" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -513,7 +513,7 @@ describe "jdeathe/centos-ssh:latest"
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--env "SSH_USER_ID=1000:502" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -562,7 +562,7 @@ describe "jdeathe/centos-ssh:latest"
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--env "SSH_USER_SHELL=/bin/sh" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -612,7 +612,7 @@ describe "jdeathe/centos-ssh:latest"
 				--env "SSH_SUDO=ALL=(ALL) NOPASSWD:ALL" \
 				--env "SSH_INHERIT_ENVIRONMENT=true" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -648,7 +648,7 @@ describe "jdeathe/centos-ssh:latest"
 				--name ssh.pool-1.1.1 \
 				--env "SSH_USER_PASSWORD=Insecure_Passw0rd£" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -714,7 +714,7 @@ describe "jdeathe/centos-ssh:latest"
 				--env 'SSH_USER_PASSWORD=$6$pepper$g5/OhofGtHVo3wqRgVHFQrJDyK0mV9bDpF5HP964wuIkQ7MXuYq1KRTmShaUmTQW3ZRsjw2MjC1LNPh5HMcrY0' \
 				--env "SSH_USER_PASSWORD_HASHED=true" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			container_port_22="$(
 				docker port \
@@ -779,7 +779,7 @@ describe "jdeathe/centos-ssh:latest"
 				--name ssh.pool-1.1.1 \
 				--env "SSH_AUTOSTART_SSHD_BOOTSTRAP=false" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			sleep ${BOOTSTRAP_BACKOFF_TIME}
 
@@ -801,7 +801,7 @@ describe "jdeathe/centos-ssh:latest"
 				--name ssh.pool-1.1.1 \
 				--env "SSH_AUTOSTART_SSHD=false" \
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
-				jdeathe/centos-ssh:latest &> /dev/null
+				defconjuan/docker-centos-ssh:latest &> /dev/null
 
 			sleep ${BOOTSTRAP_BACKOFF_TIME}
 
@@ -833,7 +833,7 @@ describe "jdeathe/centos-ssh:latest"
 				--publish ${DOCKER_PORT_MAP_TCP_22}:22 \
 				--env SSH_CHROOT_DIRECTORY="/chroot/%u" \
 				--env SSH_USER_FORCE_SFTP=true \
-				jdeathe/centos-ssh:latest \
+				defconjuan/docker-centos-ssh:latest \
 				&> /dev/null
 
 			container_port_22="$(
@@ -926,7 +926,7 @@ describe "jdeathe/centos-ssh:latest"
 			docker run -d \
 				--name www-data.pool-1.1.1 \
 				--volume www-data.pool-1.1.1:/var/www \
-				jdeathe/centos-ssh:latest \
+				defconjuan/docker-centos-ssh:latest \
 				&> /dev/null
 
 			sleep ${BOOTSTRAP_BACKOFF_TIME}
@@ -944,7 +944,7 @@ describe "jdeathe/centos-ssh:latest"
 				--env SSH_USER_FORCE_SFTP=true \
 				--env SSH_USER_HOME="/var/www" \
 				--volumes-from www-data.pool-1.1.1 \
-				jdeathe/centos-ssh:latest \
+				defconjuan/docker-centos-ssh:latest \
 				&> /dev/null
 
 			container_port_22="$(

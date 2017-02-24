@@ -1,12 +1,12 @@
 # =============================================================================
-# jdeathe/centos-ssh
+# defconjuan/docker-centos-ssh
 #
 # CentOS-6 6.8 x86_64 - SCL/EPEL/IUS Repos. / Supervisor / OpenSSH.
 # 
 # =============================================================================
 FROM centos:centos6.8
 
-MAINTAINER James Deathe <james.deathe@gmail.com>
+MAINTAINER Robert Hernandez <robert.hernandez@breaktech.com>
 
 # -----------------------------------------------------------------------------
 # Base Install + Import the RPM GPG keys for Repositories
@@ -177,7 +177,7 @@ LABEL \
 --rm \
 --privileged \
 --volume /:/media/root \
-jdeathe/centos-ssh:${RELEASE_VERSION} \
+defconjuan/docker-centos-ssh:${RELEASE_VERSION} \
 /usr/sbin/scmi install \
 --chroot=/media/root \
 --name=\${NAME} \
@@ -187,18 +187,18 @@ jdeathe/centos-ssh:${RELEASE_VERSION} \
 --rm \
 --privileged \
 --volume /:/media/root \
-jdeathe/centos-ssh:${RELEASE_VERSION} \
+defconjuan/docker-centos-ssh:${RELEASE_VERSION} \
 /usr/sbin/scmi uninstall \
 --chroot=/media/root \
 --name=\${NAME} \
 --tag=${RELEASE_VERSION} \
 --setopt='--volume {{NAME}}.config-ssh:/etc/ssh'" \
-	org.deathe.name="centos-ssh" \
+	org.deathe.name="docker-centos-ssh" \
 	org.deathe.version="${RELEASE_VERSION}" \
-	org.deathe.release="jdeathe/centos-ssh:${RELEASE_VERSION}" \
+	org.deathe.release="defconjuan/docker-centos-ssh:${RELEASE_VERSION}" \
 	org.deathe.license="MIT" \
-	org.deathe.vendor="jdeathe" \
-	org.deathe.url="https://github.com/jdeathe/centos-ssh" \
+	org.deathe.vendor="defconjuan" \
+	org.deathe.url="https://github.com/defconjuan/docker-centos-ssh" \
 	org.deathe.description="CentOS-6 6.8 x86_64 - SCL, EPEL and IUS Repositories / Supervisor / OpenSSH."
 
 CMD ["/usr/bin/supervisord", "--configuration=/etc/supervisord.conf"]
